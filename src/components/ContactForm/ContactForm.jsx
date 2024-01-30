@@ -1,5 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { IoIosAddCircleOutline } from "react-icons/io";
+
 
 const phoneRegExp =
   /\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}/;
@@ -59,9 +61,10 @@ export const ContactForm = ({ onSubmit }) => {
         <button
           type="submit"
           className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-green-500
-          focus:ring"
+          focus:ring flex items-center space-x-2"
         >
-          Add contact
+          <span>Add contact</span>
+          <IoIosAddCircleOutline className="text-2xl"/>
         </button>
       </Form>
     </Formik>
