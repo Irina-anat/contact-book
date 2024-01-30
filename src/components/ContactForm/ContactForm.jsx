@@ -43,10 +43,10 @@ export const ContactForm = ({ onSubmit }) => {
             name="name"
             className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300 hover:border-blue-500"
           />
-          <ErrorMessage name="name" className="text-red-500 text-sm" />
+          <ErrorMessage name="name" className="text-sm" />
         </div>
         <div className="mb-4">
-          <label htmlFor="number" className="text-sm font-medium text-gray-600">
+          <label htmlFor="number" className="text-sm font-medium text-gray-600 focus:outline-none">
             Number
           </label>
           <Field
@@ -54,11 +54,12 @@ export const ContactForm = ({ onSubmit }) => {
             name="number"
             className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300 hover:border-blue-500"
           />
-          <ErrorMessage name="number" className="text-red-500 text-sm" />
+          <ErrorMessage name="number" className="text-sm" />
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-green-500
+          focus:ring"
         >
           Add contact
         </button>

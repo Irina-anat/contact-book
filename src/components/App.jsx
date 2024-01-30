@@ -2,15 +2,30 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'animate.css';
-import initialContacts from '../contacts.json';
+//import initialContacts from '../contacts.json';
 import { ContactForm } from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
 export class App extends React.Component {
   state = {
-    contacts: initialContacts,
+    contacts: [],
     filter: '',
+  };
+
+    componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    //console.log('update contacts')
+    };
   };
 
   addContact = ({ name, number }) => {
@@ -55,6 +70,8 @@ export class App extends React.Component {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
+
+
 
   render() {
     const { filter } = this.state;
